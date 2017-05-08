@@ -1,0 +1,12 @@
+.color-box{
+  border: 1px solid #000;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin: 4px;
+}
+
+.color-well {
+  width: 630px;
+  margin: 0 auto;
+}
