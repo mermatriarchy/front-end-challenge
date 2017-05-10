@@ -6,6 +6,33 @@ $(document).ready(function($) {
       $('.color-well').append("<div class='color-box'></div>")
     }
 
+  //define node object constructor
+  function node(data, next){
+    this.data = data;
+    this.next = null;
+  }
+
+  //define color array
+  var colorArray = ['black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow']
+
+  //construct a new linked list 
+  function linkedList(){
+    this._length = 0;
+    this.head = null;
+  }
+
+  //construct a new linked list prototype
+  linkedList.prototype.add = function(val){
+    var node = new node(val),
+      currentNode = this.head;
+
+  }
+
+  //fill in the colors of the color boxes
+  if ($('div').hasClass('color-box')){
+
+  }
+
 
   //utilize a circularly linked list to establish color sequence for click event
   //initialize node object
