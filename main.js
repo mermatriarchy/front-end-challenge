@@ -17,8 +17,9 @@ $(document).ready(function($) {
     var colorIndex = 0;
     $('.color-box').each(function(){
       //set background color and append hidden text with color name
-      $(this).css('background-color', colorArray[colorIndex]['color'])
-      .append("<p class='color-name'>" + colorArray[colorIndex]['color'] + "</p>")
+      var color = colorArray[colorIndex]['color']
+      $(this).css('background-color', color)
+      .append("<p class='color-name'>" + color + "</p>")
       //move to next array index on each box
       colorIndex++;  
       //reset colorIndex variable when it gets to the end of the array indices
@@ -35,9 +36,14 @@ $(document).ready(function($) {
     }, 
       function(){
       //hide color name
-        $(this).children().hide();;
+        $(this).children().hide();
       }
     )
+
+    $('.color-box').click(function(){
+      return false
+
+    });
   //utilize a circularly linked list to establish color sequence for click event
   //initialize node object
   //build linked list as a multidimensional array with initial 7 colors

@@ -9,6 +9,7 @@
   height: 50px;
   width: 50px;
   margin: 4px;
+  position: relative;
 }
 
 p.color-name{
@@ -16,7 +17,8 @@ p.color-name{
   color: #a9a9a9;
   margin: 0 auto;
   position: absolute;
-  padding: 21px 5px;
-  word-break: break-all;
   display: none;
+  padding: 21px 0;
+  text-align: center;
+  width:100%;
 }
