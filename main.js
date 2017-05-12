@@ -16,12 +16,22 @@ $(document).ready(function($) {
     $('.color-box').each(function(){
       $(this).css('background-color', colorArray[colorIndex]);
       colorIndex++;  
-      //reset colorIndex variable when it gets to the end of the array
+      //reset colorIndex variable when it gets to the end of the array indices
       if (colorIndex === 7){
         colorIndex = 0;
       }    
     });
 
+
+    $('.color-box').hover(function(e){
+      var color = $(this).css('background-color')
+      $(this).append("<p class='color-name'>" + color + "</p>");
+    }, 
+      function(){
+        $(this).text("");
+      }
+
+    )
   //utilize a circularly linked list to establish color sequence for click event
   //initialize node object
   //build linked list as a multidimensional array with initial 7 colors
