@@ -3,7 +3,9 @@ $(document).ready(function($) {
   console.log('ready!')
 
   //define color array
-  var colorArray = ['black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow']
+ var colorArray = [{color:'black', next:'blue'}, {color:'blue', next:'cyan'}, 
+  {color:'cyan', next:'green'}, {color:'green', next:'magenta'}, {color:'magenta', next:'red'}, 
+  {color:'red', next: 'yellow'}, {color:'yellow', next:'black'}]
 
   //populate the color-well with divs on page load because
   //who wants to hand code 100 divs??
@@ -14,23 +16,27 @@ $(document).ready(function($) {
     //fill in color of boxes
     var colorIndex = 0;
     $('.color-box').each(function(){
-      $(this).css('background-color', colorArray[colorIndex]);
+      //set background color and append hidden text with color name
+      $(this).css('background-color', colorArray[colorIndex]['color'])
+      .append("<p class='color-name'>" + colorArray[colorIndex]['color'] + "</p>")
+      //move to next array index on each box
       colorIndex++;  
       //reset colorIndex variable when it gets to the end of the array indices
-      if (colorIndex === 7){
+      if (colorIndex === colorArray.length){
         colorIndex = 0;
       }    
     });
 
 
-    $('.color-box').hover(function(e){
-      var color = $(this).css('background-color')
-      $(this).append("<p class='color-name'>" + color + "</p>");
+    //show color name on hover
+    $('.color-box').hover(function(){
+      //show color name
+      $(this).children().show();
     }, 
       function(){
-        $(this).text("");
+      //hide color name
+        $(this).children().hide();;
       }
-
     )
   //utilize a circularly linked list to establish color sequence for click event
   //initialize node object

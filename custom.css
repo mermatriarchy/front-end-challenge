@@ -1,5 +1,3 @@
-*:hover {  box-sizing: border-box;}
-
 .color-well {
   width: 630px;
   margin: 0 auto;
@@ -11,14 +9,14 @@
   height: 50px;
   width: 50px;
   margin: 4px;
-  box-sizing: border-box;
 }
 
 p.color-name{
   font: 10px arial, sans-serif;
-  color: #fff;
+  color: #a9a9a9;
   margin: 0 auto;
   position: absolute;
   padding: 21px 5px;
   word-break: break-all;
+  display: none;
 }
