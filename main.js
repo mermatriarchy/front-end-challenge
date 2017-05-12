@@ -11,11 +11,15 @@ $(document).ready(function($) {
       $('.color-well').append("<div class='color-box'></div>");
     }
 
-      //fill in color of boxes
-    var colorIndex = 1;
+    //fill in color of boxes
+    var colorIndex = 0;
     $('.color-box').each(function(){
       $(this).css('background-color', colorArray[colorIndex]);
-      colorIndex++;      
+      colorIndex++;  
+      //reset colorIndex variable when it gets to the end of the array
+      if (colorIndex === 7){
+        colorIndex = 0;
+      }    
     });
 
   //utilize a circularly linked list to establish color sequence for click event
