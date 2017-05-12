@@ -1,38 +1,22 @@
 $(document).ready(function($) {
+  //check that jquery is loaded correctly
   console.log('ready!')
-  //populate the color-well with divs on page load because
-  //who wants to hand code 100 divs??
-    for (i=0; i<100; i++){
-      $('.color-well').append("<div class='color-box'></div>")
-    }
-
-  //define node object constructor
-  function node(data, next){
-    this.data = data;
-    this.next = null;
-  }
 
   //define color array
   var colorArray = ['black', 'blue', 'cyan', 'green', 'magenta', 'red', 'yellow']
 
-  //construct a new linked list 
-  function linkedList(){
-    this._length = 0;
-    this.head = null;
-  }
+  //populate the color-well with divs on page load because
+  //who wants to hand code 100 divs??
+    for (i=0; i<100; i++){
+      $('.color-well').append("<div class='color-box'></div>");
+    }
 
-  //construct a new linked list prototype
-  linkedList.prototype.add = function(val){
-    var node = new node(val),
-      currentNode = this.head;
-
-  }
-
-  //fill in the colors of the color boxes
-  if ($('div').hasClass('color-box')){
-
-  }
-
+      //fill in color of boxes
+    var colorIndex = 1;
+    $('.color-box').each(function(){
+      $(this).css('background-color', colorArray[colorIndex]);
+      colorIndex++;      
+    });
 
   //utilize a circularly linked list to establish color sequence for click event
   //initialize node object
