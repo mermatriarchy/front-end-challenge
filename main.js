@@ -18,6 +18,7 @@ $(document).ready(function($) {
     $('.color-box').each(function(){
       //set background color and append hidden text with color name
       //add class to point back to the index for click function
+      
       var color = colorArray[colorIndex]['color']
       $(this).css('background-color', color)
       .append("<p class='color-name arrayIndex-" + colorIndex +"'>" + color + "</p>")
@@ -43,20 +44,24 @@ $(document).ready(function($) {
 
     $('.color-box').click(function(){
       //get the index of the color from the colorIndex class name
-      var findColorIndex = $(this).children().attr('class').match(/\d+/)[0]
+      //var findColorIndex = $(this).children().attr('class').match(/\d+/)[0]
       //convert string to integer
-      var colorIndex = parseInt(findColorIndex)
+      var colorIndex = parseInt($(this).children().attr('class').match(/\d+/)[0])
       //set new color to the value of next key in colorArray
-      var newColor = colorArray[colorIndex]['next']
-      //increament colorIndex to match the index of the next item in colorArray
-      colorIndex++;
-      //update background color and text
-      $(this).css('background-color', newColor)
-      .append("<p class='color-name arrayIndex-" + colorIndex +"'>" + newColor + "</p>")
-
-      //find the color in the colorArray that matches the background color
-      //set new color to the value of the next key in the hash
-
+      var nextColor = colorArray[colorIndex]['next']
+      //increment colorIndex to match the index of the next item in colorArray
+      colorIndex++;  
+      //reset colorIndex variable when it gets to the end of the array indices
+      if (colorIndex === colorArray.length){
+        colorIndex = 0;
+      }    
+      //remove element with current color to replace it with an element containing
+      //the next color
+      $(this).children().remove();
+      //update background color and text on div
+      //replace text & color index classname in p tag
+      $(this).css('background-color', nextColor)
+      .append("<p class='color-name arrayIndex-" + colorIndex +"'>" + nextColor + "</p>");
     });
   //utilize a circularly linked list to establish color sequence for click event
   //initialize node object
