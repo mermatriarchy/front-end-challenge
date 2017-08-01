@@ -44,19 +44,6 @@ $(document).ready(function($) {
       });
   }
 
-    //show color name on hover
-  function showColorNameOnHov(){
-    $('.color-box').hover(function(){
-      //show color name
-      $(this).children().show();
-    }, 
-      function(){
-      //hide color name
-        $(this).children().hide();
-      }
-    )
-  }
-
     //cycle through the colors/colorArray on click
   function nextColor(){
     $('.color-box').click(function(){
@@ -79,7 +66,6 @@ $(document).ready(function($) {
 
   populateColorWell();
   colorFill();
-  showColorNameOnHov();
   nextColor();
 
 });//end wrapper function

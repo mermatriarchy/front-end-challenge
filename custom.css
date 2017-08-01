@@ -22,8 +22,13 @@ p.color-name{
   color: #a9a9a9;
   margin: 0 auto;
   position: absolute;
-  display: none;
+  opacity: 0;
   padding: 21px 0;
   text-align: center;
   width:100%;
+  transition: opacity 0.4s ease-out;
+}
+
+.color-box:hover > *{
+  opacity: 1;
 }
