@@ -5,12 +5,10 @@ $(document).ready(function($) {
   ////// TABLE OF CONTENTS /////
   // lines 10-14: data structure
   // lines 23-81: function definitions
-  // lines: function invocation
+  // lines 82-85: function invocation
 
   //define color array
- var colorArray = [{color:'black', next:'blue'}, {color:'blue', next:'cyan'}, 
-  {color:'cyan', next:'green'}, {color:'green', next:'magenta'}, {color:'magenta', next:'red'}, 
-  {color:'red', next: 'yellow'}, {color:'yellow', next:'black'}]
+ var colorArray = ['black','blue','cyan','green','magenta','red','yellow']
 
   //populate the color-well with divs on page load because
   //who wants to hand code 100 divs??
@@ -38,7 +36,7 @@ $(document).ready(function($) {
       $('.color-box').each(function(){
       //set background color and append hidden text with color name
       //add class to point back to the index for click function
-        var color = colorArray[colorIndex]['color']
+        var color = colorArray[colorIndex];
         $(this).css('background-color', color)
         .append("<p class='color-name arrayIndex-" + colorIndex +"'>" + color + "</p>")
       //move to next array index on each box
@@ -65,10 +63,10 @@ $(document).ready(function($) {
       //get the index of the color from the colorIndex class name
       //convert string to integer
       var colorIndex = parseInt($(this).children().attr('class').match(/\d+/)[0])
-      //set new color to the value of next key in colorArray
-      var nextColor = colorArray[colorIndex]['next']
       //increment colorIndex to match the index of the next item in colorArray
-      colorIndex = nextIndex(colorIndex);  
+      colorIndex = nextIndex(colorIndex); 
+      //set new color to the value of next key in colorArray
+      var nextColor = colorArray[colorIndex]; 
       //remove element with current color to replace it with an element containing
       //the next color
       $(this).children().remove();
